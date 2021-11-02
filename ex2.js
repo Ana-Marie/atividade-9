@@ -109,5 +109,12 @@ const objArr = arr.map(mapToNumberObject);
 // Exercí­cio 4: use R.pipe para compor as funções: isEven, positive, isOdd, negative, 
     // isZero, e isPrime. Teste a função composta com um único objeto.
 const assignProperties = R.pipe(isEven,positive,isOdd,negative,isZero,isPrime);
+console.log("-----------------test with a object-----------------------");
 console.log(assignProperties(objArr[4]));
+
 // Exercí­cio 5: use a função composta do Ex. 4 para transformar os números em 'arr'
+
+// Não entendi muito bem o que é para fazer, mas acrdito que seja isso.
+console.log("------------------Array of objects using ex 4 ------------");
+const objArr2 =objArr.map(assignProperties);
+console.log(objArr2);
