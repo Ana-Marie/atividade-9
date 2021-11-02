@@ -13,20 +13,38 @@ function positive(number) {
 }
 
 function isOdd(number) {
-    // Implementar
+    const n = R.clone(number);
+    n.odd = n.value % 2 === 1;
+    return n;
 }
 
 function negative(number) {
-    // Implementar
+    const n = R.clone(number);
+    n.negative = n.value < 0;
+    return n;
 }
 
 function isZero(number) {
-    // Implementar
+    const n = R.clone(number);
+    n.zero = n.value === 0;
+    return n;
+}
+function isPrime(number) { // referencia do código da função is Prime: https://www.dcc.fc.up.pt/~pbv/aulas/progimp/teoricas/teorica07.html
+    const n = R.clone(number);
+    if (n.value <= 1) {
+        n.prime = false;
+        return n;
+    }
+    for (d = 2; d * d <= n.value; d++) {
+        if (n.value % d == 0) {
+            n.prime = false;
+            return n;
+        }
+    }
+    n.prime = true;
+    return n;
 }
 
-function isPrime(number) {
-    // Implementar
-}
 
 function mapToNumberObject(num) {
     return { value: num };
@@ -34,7 +52,6 @@ function mapToNumberObject(num) {
 
 const arr = [-1, 50, 5, 10, -8, 20, 25, 0, 100, 14, -123];
 const objArr = arr.map(mapToNumberObject);
-console.log(objArr);
 
 
 // Exercí­cio 1: use map() para transformar 'arr' em objetos usando mapToNumberObject()
